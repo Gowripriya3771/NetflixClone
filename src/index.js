@@ -1,5 +1,6 @@
-import { Launch } from '@lightningjs/sdk'
-import App from './App'
+import { Launch } from "@lightningjs/sdk";
+import App from "./App";
+// import routes from "./routes";
 
 const app = Launch(
   App,
@@ -8,19 +9,19 @@ const app = Launch(
     debug: true,
     enablePointer: true,
     keys: {
-      38: 'Up',
-      40: 'Down',
-      37: 'Left',
-      39: 'Right',
-      13: 'Enter',
-      8: 'Back',
-      27: 'Exit',
+      38: "Up",
+      40: "Down",
+      37: "Left",
+      39: "Right",
+      13: "Enter",
+      8: "Back",
+      27: "Exit",
     },
   },
   {
     /* Platform settings */
-  },
-)
+  }
+);
 
-const canvas = app.stage.getCanvas()
-document.body.appendChild(canvas)
+const canvas = app.stage.getCanvas();
+document.body.appendChild(canvas);
