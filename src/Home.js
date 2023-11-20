@@ -4,6 +4,7 @@ import { navigate } from "@lightningjs/sdk/src/Router";
 export default class Home extends Lightning.Component {
   static _template() {
     return {
+      // x: 90,
       w: 1920,
       h: 1080,
       color: 0xff000000,
@@ -71,7 +72,7 @@ export default class Home extends Lightning.Component {
             text: {
               text: "The Cotton Club the club, those that ran it, and is peppered with the Jazz music that made it so famous.The story follows the people that visited the club, those that ran it, and is peppered with the Jazz music that made it so famous.",
               fontSize: 25,
-              wordWrapWidth: 470,
+              wordWrapWidth: 700,
             },
           },
         },

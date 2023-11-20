@@ -10,7 +10,7 @@ class Rail extends Lightning.Component {
     return {
       w: 1920,
       h: 420,
-      x: 60,
+      x: 90,
       y: 660,
       rect: true,
       color: 0xff000000,
@@ -32,13 +32,6 @@ class Rail extends Lightning.Component {
     this.tag("Wrapper").children = mapTiles;
   }
 
-  // _focus() {
-  //   this.patch({ color: 0xff000000 });
-  // }
-  // _unfocus() {
-  //   this.patch({ color: 0xff000000 });
-  // }
-
   _getFocused() {
     return this.tag("Wrapper").children[this.index]; //first focus to first index
   }
@@ -49,15 +42,6 @@ class Rail extends Lightning.Component {
 
       this.repositionWrapper();
       // Router.navigate("moviedetails");
-    }
-  }
-
-  _handleEnter() {
-    if (this.index < this.rowlength) {
-      this.index++;
-
-      this.repositionWrapper();
-      Router.navigate("moviedetails");
     }
   }
 

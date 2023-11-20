@@ -15,7 +15,7 @@ const routes = {
       component: Home,
     },
     {
-      path: "moviedetails",
+      path: "moviedetails/:id",
       component: MovieDetails,
     },
   ],

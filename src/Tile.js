@@ -1,4 +1,4 @@
-import { Lightning, Utils } from "@lightningjs/sdk";
+import { Lightning, Utils, Router } from "@lightningjs/sdk";
 
 class Tile extends Lightning.Component {
   //   rowLength = MovieData.length;
@@ -20,6 +20,13 @@ class Tile extends Lightning.Component {
   //   // console.log(this.title);
   // }
 
+  _handleEnter() {
+    Router.navigate(`moviedetails/${this.data.id}`, {
+      data: this.data,
+    });
+    console.log(this.data);
+  }
+
   _focus() {
     this.patch({
       shader: {
@@ -30,7 +37,7 @@ class Tile extends Lightning.Component {
     });
     this.fireAncestors("$changeDetails", this.data);
     // this.fireAncestors("$changeDetail", this.poster);
-    console.log(this.data.Description);
+    // console.log(this.data);
   }
 
   _unfocus() {

@@ -12,17 +12,14 @@ export default class NavsmallItem extends Lightning.Component {
 
       w: 40,
       h: 40,
-      // text: { text: "hai" },
     };
   }
   _focus() {
     this.patch({
       w: 40,
-      shader: {
-        type: Lightning.shaders.Outline,
-        stroke: [20, 30, 30],
-        color: 0xffffffff,
-      },
+      // rect: true,
+      // color: 0xff777777,
+    
     });
   }
   // _focus() {

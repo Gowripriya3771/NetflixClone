@@ -20,7 +20,7 @@ export default class Main extends Lightning.Component {
         rect: true,
         Home: {
           type: Home,
-          x: 60,
+          x: 90,
           y: 0,
           data: "hai",
         },
@@ -45,6 +45,11 @@ export default class Main extends Lightning.Component {
     this.tag("Home").patch({ data: value });
     console.log(value);
   }
+
+  // $changeDetails(value) {
+  //   this.tag("MovieDetails").patch({ data: value });
+  //   console.log(value);
+  // }
 
   _getFocused() {
     if (this.index === 0) {

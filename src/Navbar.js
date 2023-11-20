@@ -10,7 +10,7 @@ class Navbar extends Lightning.Component {
   boxlength = 6;
   static _template() {
     return {
-      w: 60,
+      w: 90,
       h: 1080,
       x: 0,
       y: 0,
@@ -18,72 +18,129 @@ class Navbar extends Lightning.Component {
       color: 0xff000000, //pink
       zIndex: 2,
       shader: null,
-      // Box1: {
-      //   type: NavsmallItem,
-      // },
-      // Box2: {},
-      Test: {
-        type: NavsmallItem,
-        x: 10,
-        y: 70,
-        color: 0xffffffff,
-        text: { text: "hai", fontSize: 20 },
-      },
+
       Box: {
+        x: 30,
         Box1: {
           type: NavsmallItem,
-          y: 200,
-          texture: Lightning.Tools.getSvgTexture(
-            Utils.asset("/images/search.svg"),
-            20,
-            20
-          ),
+          Searchicon: {
+            h: 40,
+            w: 40,
+            y: 200,
+            texture: Lightning.Tools.getSvgTexture(
+              Utils.asset("/images/search.svg"),
+              20,
+              20
+            ),
+          },
+          Label1: {
+            y: 200,
+            x: 55,
+            color: 0xffffffff,
+            text: { text: "Search", fontSize: 30 },
+            visible: false,
+          },
         },
         Box2: {
           type: NavsmallItem,
-          y: 300,
-          color: 0xffffffff,
-          texture: Lightning.Tools.getSvgTexture(
-            Utils.asset("/images/home.svg"),
-            20,
-            20
-          ),
+          HomeIcon: {
+            w: 40,
+            h: 40,
+            y: 300,
+            color: 0xffffffff,
+            texture: Lightning.Tools.getSvgTexture(
+              Utils.asset("/images/home.svg"),
+              20,
+              20
+            ),
+          },
+          Label2: {
+            y: 300,
+            x: 55,
+            color: 0xffffffff,
+            text: { text: "Home", fontSize: 30 },
+            visible: false,
+          },
         },
         Box3: {
           type: NavsmallItem,
-          y: 400,
-          texture: Lightning.Tools.getSvgTexture(
-            Utils.asset("/images/series.svg"),
-            20,
-            20
-          ),
+          SeriesIcon: {
+            w: 40,
+            h: 40,
+            y: 400,
+            texture: Lightning.Tools.getSvgTexture(
+              Utils.asset("/images/series.svg"),
+              20,
+              20
+            ),
+          },
+          Label3: {
+            y: 400,
+            x: 55,
+            color: 0xffffffff,
+            text: { text: "Series", fontSize: 30 },
+            visible: false,
+          },
         },
         Box4: {
           type: NavsmallItem,
-          y: 500,
-          texture: Lightning.Tools.getSvgTexture(
-            Utils.asset("/images/movies.svg"),
-            20,
-            20
-          ),
+          MoviesIcon: {
+            w: 40,
+            h: 40,
+            y: 500,
+            texture: Lightning.Tools.getSvgTexture(
+              Utils.asset("/images/movies.svg"),
+              20,
+              20
+            ),
+          },
+          Label4: {
+            y: 500,
+            x: 55,
+            color: 0xffffffff,
+            text: { text: "Movies", fontSize: 30 },
+            visible: false,
+          },
         },
         Box5: {
           type: NavsmallItem,
-          y: 600,
-          texture: Lightning.Tools.getSvgTexture(
-            Utils.asset("/images/plus.svg"),
-            20,
-            20
-          ),
+          PlusIcon: {
+            w: 40,
+            h: 40,
+            y: 600,
+            texture: Lightning.Tools.getSvgTexture(
+              Utils.asset("/images/plus.svg"),
+              20,
+              20
+            ),
+          },
+          Label5: {
+            y: 600,
+            x: 55,
+            color: 0xffffffff,
+            text: { text: "My List", fontSize: 30 },
+            visible: false,
+          },
         },
         Box6: {
           type: NavsmallItem,
-          y: 700,
-          texture: Lightning.Tools.getSvgTexture(
-            Utils.asset("/images/new.svg"),
-            20,
-            20
-          ),
+          AddIcon: {
+            h: 40,
+            w: 40,
+            y: 700,
+            texture: Lightning.Tools.getSvgTexture(
+              Utils.asset("/images/new.svg"),
+              20,
+              20
+            ),
+          },
+          Label6: {
+            y: 700,
+            x: 55,
+            color: 0xffffffff,
+            text: { text: "Add New", fontSize: 30 },
+            visible: false,
+          },
         },
       },
     };
@@ -120,12 +177,23 @@ class Navbar extends Lightning.Component {
       //   color: 0x00000000,
       // },
     });
+    this.tag("Box.Box1.Label1").patch({ visible: true });
+    this.tag("Box.Box2.Label2").patch({ visible: true });
+    this.tag("Box.Box3.Label3").patch({ visible: true });
+    this.tag("Box.Box4.Label4").patch({ visible: true });
+    this.tag("Box.Box5.Label5").patch({ visible: true });
+    this.tag("Box.Box6.Label6").patch({ visible: true });
 
     // this.tag("Box1").patch({ type: NavbigItem });
   }
   _unfocus() {
-    this.tag("Box1").patch({ type: NavsmallItem });
-    this.patch({ w: 50 });
+    this.patch({ w: 90 });
+    this.tag("Box.Box1.Label1").patch({ visible: false });
+    this.tag("Box.Box2.Label2").patch({ visible: false });
+    this.tag("Box.Box3.Label3").patch({ visible: false });
+    this.tag("Box.Box4.Label4").patch({ visible: false });
+    this.tag("Box.Box5.Label5").patch({ visible: false });
+    this.tag("Box.Box6.Label6").patch({ visible: false });
   }
 
   _init() {
