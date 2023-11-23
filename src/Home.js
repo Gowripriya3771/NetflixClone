@@ -73,6 +73,8 @@ export default class Home extends Lightning.Component {
               text: "The Cotton Club the club, those that ran it, and is peppered with the Jazz music that made it so famous.The story follows the people that visited the club, those that ran it, and is peppered with the Jazz music that made it so famous.",
               fontSize: 25,
               wordWrapWidth: 700,
+              maxLines: 3,
+              maxLinesSuffix: "...",
             },
           },
         },
@@ -85,10 +87,12 @@ export default class Home extends Lightning.Component {
   // }
 
   set data(data) {
-    this.tag("Plot").patch({ text: { text: data.Description } });
-    this.tag("Label").patch({ text: { text: data.Title } });
-    this.tag("Label2").patch({ text: { text: data.Year } });
-    this.tag("Image").patch({ src: data.Poster });
+    this.tag("Plot").patch({ text: { text: data.overview } });
+    this.tag("Label").patch({ text: { text: data.title } });
+    this.tag("Label2").patch({ text: { text: data.release_date } });
+    this.tag("Image").patch({
+      src: `https://image.tmdb.org/t/p/original${data.backdrop_path}`,
+    }); //here the new path to be added
     // this.tag("Background").patch({ text: { text: data.Poster } });
 
     // this.tag("Plot").patch({ text: { text: data } });
