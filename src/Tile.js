@@ -8,17 +8,8 @@ class Tile extends Lightning.Component {
       h: 350,
       x: 30,
       y: 20,
-      // shader: {
-      //   type: Lightning.shaders.RoundedRectangle, // rail to b displayed as rounded reactangle
-      //   radius: 20,
-      // },
     };
   }
-  // _init() {
-  //   // console.log(this.description);
-  //   console.log(this.src);
-  //   // console.log(this.title);
-  // }
 
   _handleEnter() {
     Router.navigate(`moviedetails/${this.data.id}`, {

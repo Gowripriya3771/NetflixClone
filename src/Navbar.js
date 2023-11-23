@@ -1,6 +1,6 @@
 import { Lightning, Utils } from "@lightningjs/sdk";
 
-import NavbigItem from "./NavbigItem";
+// import NavbigItem from "./NavbigItem";
 import NavsmallItem from "./NavsmallItem";
 
 // import { Router } from "@lightningjs/sdk/src/Router";

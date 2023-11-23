@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import Rail from "./Rail";
 // import Content from "./Content";
 import Home from "./Home";
-import NavbigItem from "./NavbigItem";
+// import NavbigItem from "./NavbigItem";
 export default class Main extends Lightning.Component {
   index = 0;
   static getFonts() {

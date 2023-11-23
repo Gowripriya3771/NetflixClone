@@ -34,8 +34,6 @@ export default class MovieDetails extends Lightning.Component {
             },
           },
 
-          // rect: true,
-          // color: 0xff000000,
           Label: {
             x: 15,
             y: 170,
@@ -229,7 +227,7 @@ export default class MovieDetails extends Lightning.Component {
             x: 1920 - 1400,
             // y: 10,
 
-            src: args.data.Poster,
+            // src: args.data.Poster,
 
             shader: {
               type: Lightning.shaders.FadeOut,
@@ -245,14 +243,14 @@ export default class MovieDetails extends Lightning.Component {
             x: 15,
             y: 170,
             color: 0xffffffff,
-            text: { text: args.data.Title, fontSize: 80 },
+            text: { text: args.data.title, fontSize: 80 },
             shader: null,
 
             Label2: {
               x: 0,
               y: 95,
               color: 0xffffffff,
-              text: { text: args.data.Year, fontSize: 30 },
+              text: { text: args.data.release_date, fontSize: 30 },
             },
             Icon1: {
               x: 85,
@@ -283,9 +281,13 @@ export default class MovieDetails extends Lightning.Component {
               y: 145,
               color: 0xffffffff,
               text: {
-                text: args.data.Description,
+                text: args.data.overview,
                 fontSize: 25,
+                wordWrap: true,
+
                 wordWrapWidth: 470,
+                // maxLines: 3,
+                // maxLinesSuffix: "...",
               },
             },
             Play: {
@@ -386,7 +388,9 @@ export default class MovieDetails extends Lightning.Component {
       },
     });
 
-    // this.tag("Background.Image").patch({ src: args.data.Poster });
+    this.tag("Background.Image").patch({
+      src: `https://image.tmdb.org/t/p/original${args.data.backdrop_path}`,
+    });
     console.log(args.data.Description);
   }
 }
