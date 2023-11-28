@@ -7,7 +7,7 @@ class Rail extends Lightning.Component {
 
   rowlength = 20;
 
-  // rowlength = movies.length - 1;
+  // rowlength = movies.length;
   static _template() {
     return {
       w: 1920,
@@ -20,7 +20,6 @@ class Rail extends Lightning.Component {
     };
   }
 
-  _; // _init() {
   async _init() {
     const options = {
       method: "GET",
@@ -30,6 +29,7 @@ class Rail extends Lightning.Component {
           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlYTAwY2Q3NGE3MzE0YjU4ODdhNzc2NmY3MzIwMjYzMiIsInN1YiI6IjY1NDRjOTk0OWQ2ZTMzMDZjYWJiNDM1YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hfBsBUqOC0cQIDWQveMVWfsrJ2uorp6QJ_Iaj86ugMk",
       },
     };
+
     let movies = [];
     let response = await fetch(
       "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
@@ -37,7 +37,8 @@ class Rail extends Lightning.Component {
     );
     let data = await response.json();
     movies = data.results;
-    console.log(movies);
+    console.log(movies[0]);
+    console.log(movies.length);
 
     const mapTiles = movies.map((value, index) => {
       console.log(value.title);
@@ -46,53 +47,19 @@ class Rail extends Lightning.Component {
         data: value,
         src: `https://image.tmdb.org/t/p/original${value.poster_path}`,
 
-        title: value.title,
+        // title: value.title,
 
         x: 20 + index * (280 + 35),
       };
     });
     this.tag("Wrapper").children = mapTiles;
+    this._refocus();
   }
-  //  this.tag("Wrapper").children = mapTiles;
-
-  // let movies = [];
-  // (async () => {
-
-  //   let response = await fetch(
-  //     "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
-  //     options
-  //   );
-  //   movies = await response.json();
-  //   console.log(movies);
-  // })();
-
-  // let movies = [];
-  // fetch(
-  //   "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
-  //   options
-  // )
-  //   .then((response) => response.json())
-  //   .then((response) => {
-  //     // console.log(response);
-  //     movies = response.results;
-  //     console.log(movies);
-  //   })
-  //   .catch((err) => console.error(err));
-
-  // const mapTiles = MovieData.map((value, index) => ({
-  //   type: Tile,
-  //   data: value,
-  //   src: value.Poster,
-  //   // title: value.Title,
-  //   // description: value.Description,
-
-  //   x: 20 + index * (280 + 35),
-  // }));
-
-  // this.tag("Wrapper").children = mapTiles;
 
   _getFocused() {
-    return this.tag("Wrapper").children[this.index]; //first focus to first index
+    return this.tag("Wrapper").children[this.index];
+
+    //first focus to first index
   }
 
   _handleRight() {

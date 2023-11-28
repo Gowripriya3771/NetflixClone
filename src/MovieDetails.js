@@ -9,6 +9,7 @@ export default class MovieDetails extends Lightning.Component {
     return {
       w: 1920,
       h: 1080,
+
       color: 0xff000000,
       rect: true,
       Overview: {
@@ -180,26 +181,6 @@ export default class MovieDetails extends Lightning.Component {
     };
   }
 
-  // _getFocused() {
-  //   return this.tag("Play");
-  // }
-
-  // _getFocused() {
-  //   if (this.index === 0) {
-  //     return this.tag("Overview.Play.PlayButton");
-  //   } else {
-  //     return this.tag("Overview.Navbar");
-  //   }
-  // }
-  // _focus() {
-  //   this.tag("Play.PlayButton").patch({
-  //     rect: true,
-  //     color: 0xff550055,
-  //     w: 30,
-  //     h: 30,
-  //     zIndex: 2,
-  //   });
-  // }
   _handleLeft() {
     if (this.index === 0) {
       this.index = 1;
@@ -212,15 +193,14 @@ export default class MovieDetails extends Lightning.Component {
     }
   }
 
-  // _unfocus() {
-  //   this.tag("Overview").patch({ text: { visible: false } });
-  // }
   set params(args) {
     this.patch({
       Overview: {
         type: Navbar,
         Background: {
-          x: 60,
+          // x: 60,
+          // flex: { direction: "row", left: 0 },
+
           Image: {
             w: 1500,
             h: 1080 - 300,
@@ -239,18 +219,26 @@ export default class MovieDetails extends Lightning.Component {
 
           // rect: true,
           // color: 0xff000000,
+
+          // flex: { direction: "column", padding: 20, wrap: true },
+
           Label: {
+            // flex: { direction: "row", padding: 20, wrap: true },
             x: 15,
             y: 170,
             color: 0xffffffff,
-            text: { text: args.data.title, fontSize: 80 },
+            text: { text: args.data.title, fontSize: 70 },
             shader: null,
 
             Label2: {
               x: 0,
               y: 95,
               color: 0xffffffff,
-              text: { text: args.data.release_date, fontSize: 30 },
+              text: {
+                // text: "2023",
+                text: args.data.release_date.slice(0, 4),
+                fontSize: 30,
+              },
             },
             Icon1: {
               x: 85,
@@ -286,8 +274,8 @@ export default class MovieDetails extends Lightning.Component {
                 wordWrap: true,
 
                 wordWrapWidth: 470,
-                // maxLines: 3,
-                // maxLinesSuffix: "...",
+                maxLines: 5,
+                maxLinesSuffix: "...",
               },
             },
             Play: {
@@ -391,6 +379,22 @@ export default class MovieDetails extends Lightning.Component {
     this.tag("Background.Image").patch({
       src: `https://image.tmdb.org/t/p/original${args.data.backdrop_path}`,
     });
-    console.log(args.data.Description);
+  }
+  async _init() {
+    const options = {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization:
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlYTAwY2Q3NGE3MzE0YjU4ODdhNzc2NmY3MzIwMjYzMiIsInN1YiI6IjY1NDRjOTk0OWQ2ZTMzMDZjYWJiNDM1YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hfBsBUqOC0cQIDWQveMVWfsrJ2uorp6QJ_Iaj86ugMk",
+      },
+    };
+    let response = await fetch(
+      "https://api.themoviedb.org/3/movie/9560?language=en-US",
+      options
+    );
+    let data1 = await response.json();
+    console.log(data1);
+    this._refocus();
   }
 }

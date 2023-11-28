@@ -2,6 +2,7 @@ import { Lightning, Utils, Router } from "@lightningjs/sdk";
 
 class Tile extends Lightning.Component {
   //   rowLength = MovieData.length;
+
   static _template() {
     return {
       w: 280,
@@ -27,8 +28,6 @@ class Tile extends Lightning.Component {
       },
     });
     this.fireAncestors("$changeDetails", this.data);
-    // this.fireAncestors("$changeDetail", this.poster);
-    // console.log(this.data);
   }
 
   _unfocus() {

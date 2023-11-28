@@ -16,15 +16,9 @@ class Content extends Lightning.Component {
           y: 70,
           h: 250,
           w: 200,
-          //   src: value.Poster,
         },
       },
     };
   }
-  // data = {};
-
-  // set data(item) {
-  //   console.log(item);
-  // }
 }
 export default Content;

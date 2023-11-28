@@ -43,7 +43,7 @@ export default class Main extends Lightning.Component {
 
   $changeDetails(value) {
     this.tag("Home").patch({ data: value });
-    console.log(value);
+    console.log("### main:", value);
   }
 
   // $changeDetails(value) {
