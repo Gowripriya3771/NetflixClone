@@ -31,8 +31,6 @@ export default class Home extends Lightning.Component {
           },
         },
 
-        // rect: true,
-        // color: 0xff000000,
         Label: {
           // flex: { direction: "column", padding: 20 },
           x: 15,
@@ -94,20 +92,6 @@ export default class Home extends Lightning.Component {
     };
   }
 
-  // _getFocused() {
-  //   if (this.index === 0) {
-  //     return this.tag("Play");
-  //   } else {
-  //     return this.tag("Rail");
-  //   }
-  // }
-
-  // _handleBack() {
-  //   if (this.index === 1) {
-  //     this.index = 0;
-  //   }
-  // }
-
   set data(data) {
     this.patch({
       Background: {
@@ -129,23 +113,18 @@ export default class Home extends Lightning.Component {
           },
         },
 
-        // rect: true,
-        // color: 0xff000000,
         Label: {
-          // flex: { direction: "column", padding: 20 },
           x: 15,
           y: 170,
           color: 0xffffffff,
           text: { text: data.title, fontSize: 70 },
           shader: null,
-          // flexItem: { margin: 10 },
 
           Label2: {
             x: 0,
             y: 85,
             color: 0xffffffff,
             text: { text: "2018", fontSize: 30 },
-            // flexItem: { margin: 10 },
           },
           Icon1: {
             x: 85,

@@ -38,7 +38,7 @@ class Grid extends Lightning.Component {
           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlYTAwY2Q3NGE3MzE0YjU4ODdhNzc2NmY3MzIwMjYzMiIsInN1YiI6IjY1NDRjOTk0OWQ2ZTMzMDZjYWJiNDM1YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hfBsBUqOC0cQIDWQveMVWfsrJ2uorp6QJ_Iaj86ugMk",
       },
     };
-    let response = await fetch(
+    let response1 = await fetch(
       "https://api.themoviedb.org/3/movie/9560?language=en-US",
       options
     );

@@ -102,6 +102,7 @@ class Navbar extends Lightning.Component {
             visible: false,
           },
         },
+
         Box5: {
           type: NavsmallItem,
           PlusIcon: {
@@ -174,6 +175,10 @@ class Navbar extends Lightning.Component {
   _focus() {
     this.patch({
       smooth: { w: 300 },
+      // rect: true,
+      // w: 100,
+      // h: 20,
+      // color: 0xff000000,
       // shader: {
       //   type: Lightning.shaders.FadeOut,
       //   right: 100,
@@ -198,10 +203,6 @@ class Navbar extends Lightning.Component {
     this.tag("Box.Box4.Label4").patch({ visible: false });
     this.tag("Box.Box5.Label5").patch({ visible: false });
     this.tag("Box.Box6.Label6").patch({ visible: false });
-  }
-
-  _init() {
-    console.log("hai gowriiiii");
   }
 }
 export default Navbar;
