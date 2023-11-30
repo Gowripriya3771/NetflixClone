@@ -2,6 +2,7 @@ import { Lightning, Utils, Router } from "@lightningjs/sdk";
 import { navigate } from "@lightningjs/sdk/src/Router";
 import Rail from "./Rail";
 import Navbar from "./Navbar";
+import Play from "./Play";
 
 export default class Home extends Lightning.Component {
   //
@@ -93,13 +94,19 @@ export default class Home extends Lightning.Component {
     };
   }
 
-  _getFocused() {
-    if (this.index === 0) {
-      return this.tag("Rail");
-    } else {
-      return this.tag("Navbar");
-    }
-  }
+  // _getFocused() {
+  //   if (this.index === 0) {
+  //     return this.tag("Play");
+  //   } else {
+  //     return this.tag("Rail");
+  //   }
+  // }
+
+  // _handleBack() {
+  //   if (this.index === 1) {
+  //     this.index = 0;
+  //   }
+  // }
 
   set data(data) {
     this.patch({
@@ -180,29 +187,11 @@ export default class Home extends Lightning.Component {
               maxLinesSuffix: "...",
             },
           },
+
           Play: {
-            x: 0,
-            y: 250,
-            rect: true,
-            color: 0xffffffff,
-            w: 150,
-            h: 50,
-            PlayButton: {
-              x: 15,
-              y: 10,
-              texture: Lightning.Tools.getSvgTexture(
-                Utils.asset("/images/play.svg"),
-                30,
-                30
-              ),
-            },
-            Playtext: {
-              color: 0xff000000,
-              x: 60,
-              y: 5,
-              text: { text: "Play", fontSize: 30 },
-            },
+            type: Play,
           },
+
           Info: {
             x: 200,
             y: 250,
@@ -229,5 +218,6 @@ export default class Home extends Lightning.Component {
         },
       },
     });
+    this._refocus();
   }
 }

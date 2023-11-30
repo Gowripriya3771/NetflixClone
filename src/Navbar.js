@@ -150,6 +150,10 @@ class Navbar extends Lightning.Component {
     return this.tag("Box").children[this.index];
   }
 
+  // _handleEnter() {
+  //   Router.navigate("grid");
+  // }
+
   _handleDown() {
     if (this.index == this.boxlength - 1) {
       this.index = 0;

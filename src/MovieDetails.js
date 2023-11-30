@@ -379,22 +379,28 @@ export default class MovieDetails extends Lightning.Component {
     this.tag("Background.Image").patch({
       src: `https://image.tmdb.org/t/p/original${args.data.backdrop_path}`,
     });
-  }
-  async _init() {
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlYTAwY2Q3NGE3MzE0YjU4ODdhNzc2NmY3MzIwMjYzMiIsInN1YiI6IjY1NDRjOTk0OWQ2ZTMzMDZjYWJiNDM1YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hfBsBUqOC0cQIDWQveMVWfsrJ2uorp6QJ_Iaj86ugMk",
-      },
-    };
-    let response = await fetch(
-      "https://api.themoviedb.org/3/movie/9560?language=en-US",
-      options
-    );
-    let data1 = await response.json();
-    console.log(data1);
     this._refocus();
   }
+
+  // _getFocused() {
+  //   return this.tag("Play");
+  // }
+  // async _init() {
+  //   const options = {
+  //     method: "GET",
+  //     headers: {
+  //       accept: "application/json",
+  //       Authorization:
+  //         "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlYTAwY2Q3NGE3MzE0YjU4ODdhNzc2NmY3MzIwMjYzMiIsInN1YiI6IjY1NDRjOTk0OWQ2ZTMzMDZjYWJiNDM1YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hfBsBUqOC0cQIDWQveMVWfsrJ2uorp6QJ_Iaj86ugMk",
+  //     },
+  //   };
+  //   let response = await fetch(
+  //     "https://api.themoviedb.org/3/movie/9560?language=en-US",
+  //     options
+  //   );
+  //   let data1 = await response.json();
+  //   console.log(data1);
+
+  //   this._refocus();
+  // }
 }

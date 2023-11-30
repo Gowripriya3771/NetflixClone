@@ -46,11 +46,6 @@ export default class Main extends Lightning.Component {
     console.log("### main:", value);
   }
 
-  // $changeDetails(value) {
-  //   this.tag("MovieDetails").patch({ data: value });
-  //   console.log(value);
-  // }
-
   _getFocused() {
     if (this.index === 0) {
       return this.tag("Rail");
